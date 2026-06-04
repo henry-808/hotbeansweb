@@ -1,0 +1,1176 @@
+/* ============================================================
+   HOT BEANS WEB - STYLESHEET v2.0 (2026 Modern Redesign)
+   
+   A modern, professional recruitment website with:
+   - Dark header/footer with teal brand accents
+   - Card-based layouts with subtle shadows
+   - Smooth animations and hover effects
+   - Responsive grid layouts
+   - Google Fonts: Poppins + Inter
+   ============================================================ */
+
+/* --- IMPORTS & RESET --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1A1A1A;
+    background-color: #FAFAFA;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   SECTION 1: NAVIGATION BAR
+   Dark background (#1a1a2e) with teal accents
+   ============================================================ */
+
+.nav-container {
+    background-color: #1a1a2e;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 68px;
+}
+
+.nav-logo img { height: 40px; width: auto; }
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FFFFFF;
+    background-color: rgba(255,255,255,0.06);
+}
+
+/* Active page gets a pill-shaped highlight */
+.nav-links a.active {
+    color: #1a1a2e;
+    background-color: #0D7377;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ============================================================
+   SECTION 2: HERO SECTION (Home Page)
+   Full-width banner with background image overlay
+   ============================================================ */
+
+.hero {
+    position: relative;
+    padding: 120px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #0D7377 0%, #1a1a2e 100%);
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+   BACKGROUND IMAGE: The hero uses a CSS background image.
+   REPLACE: Change the background-image URL to a real photo
+   of the office, team, or workspace. Use a high-quality
+   image (1920x1080px minimum) for best results.
+*/
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 52px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+.hero .subtitle {
+    font-size: 19px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* ============================================================
+   SECTION 3: BUTTONS
+   Primary (orange), Secondary (outline), and Dark variants
+   ============================================================ */
+
+.btn-primary {
+    display: inline-block;
+    background-color: #E85D26;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(232,93,38,0.25);
+}
+
+.btn-primary:hover {
+    background-color: #C44B1C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,93,38,0.35);
+}
+
+.btn-outline {
+    display: inline-block;
+    color: #0D7377;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 11px 26px;
+    border: 2px solid #0D7377;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: #0D7377;
+    color: #FFFFFF;
+}
+
+.btn-clear {
+    display: inline-block;
+    background-color: transparent;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 13px 32px;
+    border: 1.5px solid #DDD;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-clear:hover { border-color: #999; color: #333; }
+
+/* ============================================================
+   SECTION 4: VALUE CARDS (Home Page)
+   Three feature cards on light background
+   ============================================================ */
+
+.values-section {
+    padding: 80px 40px;
+    background-color: #F5F5F5;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.values-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.value-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0D7377, #0a5c5f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+}
+
+.value-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.value-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+/* ============================================================
+   SECTION 5: PAGE HEADERS
+   Teal gradient banner on internal pages
+   ============================================================ */
+
+.page-header {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0D7377 100%);
+    color: #FFFFFF;
+}
+
+.page-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   SECTION 6: COMPANY PROFILE PAGE
+   Alternating sections with image support
+   ============================================================ */
+
+.profile-section {
+    padding: 70px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-section.alt-bg {
+    background-color: #F5F5F5;
+    max-width: 100%;
+}
+
+.profile-section.alt-bg .profile-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-two-col {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-two-col .text-col { flex: 1; }
+.profile-two-col .image-col { flex: 1; }
+
+.profile-two-col .image-col img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #e8e8e8, #f5f5f5);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.profile-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+}
+
+.profile-section.alt-bg h2 { text-align: center; }
+
+.heading-line {
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #0D7377, #E85D26);
+    margin: 0 auto 24px;
+    border-radius: 2px;
+}
+
+.profile-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.75;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.tech-badge {
+    background: linear-gradient(135deg, #0D7377, #0a5c5f);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.tech-badge:hover { transform: translateY(-2px); }
+
+/* ============================================================
+   SECTION 7: MEET THE TEAM PAGE
+   6-person grid with initial avatars
+   ============================================================ */
+
+.team-section {
+    padding: 60px 40px 80px;
+    background-color: #F5F5F5;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    height: 720px; /* makes all cards equal */
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+/* Initials avatar circle */
+.team-initials {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D7377, #0a5c5f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+/* Optional: circular photo (if you add real photos later) */
+.team-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+
+    border-radius: 12px;
+    margin-bottom: 20px;
+
+    display: block;
+}
+
+
+.team-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    height: 700px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card .role {
+    color: #0D7377;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.team-card .bio {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.team-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.team-tag {
+    background-color: #F0F0F0;
+    color: #555;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid #E5E5E5;
+}
+.team-tags {
+    margin-top: auto;
+}
+/* ============================================================
+   SECTION 8: CAREERS PAGE
+   Job cards with teal accent border
+   ============================================================ */
+
+.careers-section {
+    padding: 40px 40px 80px;
+    background-color: #F5F5F5;
+}
+
+.careers-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.job-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 36px;
+    border-left: 5px solid #0D7377;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover { transform: translateY(-3px); }
+
+.job-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.job-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.job-meta span { display: flex; align-items: center; gap: 6px; }
+
+.job-card .job-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.job-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.check-list { padding: 0; margin-bottom: 16px; }
+
+.check-list li {
+    padding: 5px 0 5px 28px;
+    position: relative;
+    font-size: 14px;
+    color: #555;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #0D7377;
+    font-weight: 700;
+}
+
+.job-card .btn-primary { margin-top: 16px; font-size: 14px; padding: 11px 28px; }
+
+/* ============================================================
+   SECTION 9: ELIGIBILITY PAGE
+   Requirement cards + numbered application process steps
+   ============================================================ */
+
+.eligibility-section {
+    padding: 50px 40px 70px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.eligibility-section > h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.eligibility-section > p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 36px;
+}
+
+/* Requirement cards in a grid */
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.requirements-grid.two-col {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 740px;
+}
+
+.req-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.req-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.req-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.65;
+}
+
+/* "How to apply" numbered steps */
+.process-section {
+    padding: 60px 40px 70px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.process-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.process-section > p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.process-steps {
+    max-width: 700px;
+}
+
+.process-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.process-step:last-child { border-bottom: none; }
+
+.step-number {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e, #0D7377);
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.step-content p { font-size: 14px; color: #666; }
+
+/* CTA Banner */
+.cta-banner {
+    background: linear-gradient(135deg, #1a1a2e, #0D7377);
+    border-radius: 16px;
+    padding: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.cta-banner h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+/* ============================================================
+   SECTION 10: COURSES PAGE
+   Card grid with icons, difficulty badges, pricing
+   ============================================================ */
+
+.courses-section {
+    padding: 40px 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.courses-intro {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.courses-grid.two-col {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.course-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+/* Card top icon area */
+.course-icon-area {
+    background: linear-gradient(135deg, #0D7377, #0a5c5f);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.course-card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Difficulty badge */
+.difficulty-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.difficulty-badge.beginner { background-color: #E8F5E9; color: #2E7D32; }
+.difficulty-badge.intermediate { background-color: #FFF3E0; color: #E65100; }
+.difficulty-badge.advanced { background-color: #FCE4EC; color: #C62828; }
+
+.course-card-body h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.course-card-body .course-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.course-meta {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+}
+
+.course-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #1a1a2e;
+}
+
+.course-card-footer .btn-primary {
+    font-size: 13px;
+    padding: 10px 20px;
+}
+
+.courses-note {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* ============================================================
+   SECTION 11: APPLICATION FORM
+   Clean modern form with card container
+   ============================================================ */
+
+.form-page {
+    background-color: #F5F5F5;
+    padding: 40px 40px 80px;
+}
+
+.form-intro {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #666;
+}
+
+.form-container {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 44px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+/* Two-column field row */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group { margin-bottom: 22px; }
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.form-group label .required { color: #D32F2F; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #E0E0E0;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #1A1A1A;
+    background: #FFFFFF;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0D7377;
+    box-shadow: 0 0 0 3px rgba(13,115,119,0.1);
+}
+
+.form-group textarea { min-height: 130px; resize: vertical; }
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #BDBDBD; }
+
+/* Error states */
+.form-group input.error-field,
+.form-group select.error-field,
+.form-group textarea.error-field {
+    border-color: #D32F2F;
+    box-shadow: 0 0 0 3px rgba(211,47,47,0.1);
+}
+
+.error-message {
+    display: block;
+    color: #D32F2F;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.error-summary {
+    background-color: #FFF5F5;
+    border: 1px solid #D32F2F;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 24px;
+    display: none;
+    color: #D32F2F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.success-message {
+    background-color: #F0FFF4;
+    border: 1px solid #2E7D32;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 24px;
+    display: none;
+    color: #2E7D32;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-divider {
+    border: none;
+    border-top: 1px solid #F0F0F0;
+    margin: 28px 0;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.form-actions .btn-primary { flex: 1; text-align: center; }
+.form-actions .btn-clear { text-align: center; }
+
+.privacy-notice {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 20px;
+}
+
+.privacy-notice a { color: #0D7377; text-decoration: underline; }
+
+/* ============================================================
+   SECTION 12: FOOTER
+   Dark footer matching the nav bar
+   ============================================================ */
+
+.footer {
+    background-color: #1a1a2e;
+    padding: 50px 40px 20px;
+    color: #FFFFFF;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-brand h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+.footer-links h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-links a {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: #FFFFFF; }
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding-top: 24px;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #0D7377;
+    border-color: #0D7377;
+    color: #FFFFFF;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 28px;
+    margin-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+}
+
+.footer-bottom a { color: #0D7377; }
+
+/* ============================================================
+   SECTION 13: RESPONSIVE DESIGN
+   ============================================================ */
+
+@media screen and (max-width: 991px) {
+    .hero h1 { font-size: 38px; }
+    .values-container { grid-template-columns: 1fr 1fr; }
+    .team-container { grid-template-columns: 1fr 1fr; }
+    .courses-grid { grid-template-columns: 1fr 1fr; }
+    .courses-grid.two-col { grid-template-columns: 1fr; }
+    .requirements-grid { grid-template-columns: 1fr 1fr; }
+    .profile-two-col { flex-direction: column; }
+    .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+}
+
+@media screen and (max-width: 767px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a2e;
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 4px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 16px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    .nav-container { padding: 0 20px; }
+    .hero { padding: 70px 20px; min-height: auto; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 16px; }
+    .values-container { grid-template-columns: 1fr; }
+    .team-container { grid-template-columns: 1fr; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .courses-grid.two-col { grid-template-columns: 1fr; }
+    .requirements-grid { grid-template-columns: 1fr; }
+    .requirements-grid.two-col { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 28px; }
+    .page-header { padding: 40px 20px; }
+    .course-card { flex-direction: column; }
+    .footer-container { flex-direction: column; text-align: center; }
+    .footer-social { justify-content: center; padding-top: 0; }
+    .form-container { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-actions { flex-direction: column; }
+    .job-card { padding: 24px; }
+    .cta-banner { padding: 28px 20px; }
+    .cta-banner h2 { font-size: 22px; }
+    .section-header h2 { font-size: 28px; }
+    .profile-section { padding: 50px 20px; }
+    .eligibility-section { padding: 40px 20px; }
+    .process-section { padding: 40px 20px; }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 { font-size: 26px; }
+    .page-header h1 { font-size: 24px; }
+    .btn-primary { padding: 12px 24px; font-size: 14px; }
+}

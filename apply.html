@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Web - Apply Now</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="nav-container">
+        <div class="navbar">
+            <a href="home.html" class="nav-logo"><img src="images/logo - hotbeans.jpg" alt="Hot Beans Web Logo"></a>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="company-profile.html">Profile</a></li>
+                <li><a href="meet-the-team.html">Meet the Team</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="eligibility.html">Eligibility</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="apply.html" class="active">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Application Form</h1>
+        <p>Fill in your details below and we will be in touch within 5 working days.</p>
+    </header>
+
+    <section class="form-page">
+        <div class="form-container">
+
+            <div id="errorSummary" class="error-summary">
+                Please correct the highlighted fields before submitting.
+            </div>
+
+            <form id="applicationForm" onsubmit="validateApplicationForm(event)">
+
+                <!-- First Name + Last Name side by side -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="e.g. Jane">
+                        <span id="firstNameError" class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" placeholder="e.g. Smith">
+                        <span id="lastNameError" class="error-message"></span>
+                    </div>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth">
+                    <span id="dateOfBirthError" class="error-message"></span>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="text" id="email" name="email" placeholder="jane@example.com">
+                    <span id="emailError" class="error-message"></span>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="07700 000000">
+                    <span id="phoneError" class="error-message"></span>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label for="gender">Gender <span class="required">*</span></label>
+                    <select id="gender" name="gender">
+                        <option value="">-- Select --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Non-binary">Non-binary</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                    <span id="genderError" class="error-message"></span>
+                </div>
+
+                <!-- Available Position -->
+                <div class="form-group">
+                    <label for="position">Available Position <span class="required">*</span></label>
+                    <select id="position" name="position">
+                        <option value="">-- Select a role --</option>
+                        <option value="Junior Front-End Developer">Junior Front-End Developer</option>
+                        <option value="Junior Back-End Developer">Junior Back-End Developer</option>
+                        <option value="Junior Full-Stack Developer">Junior Full-Stack Developer</option>
+                        <option value="UX/UI Designer">UX/UI Designer</option>
+                    </select>
+                    <span id="positionError" class="error-message"></span>
+                </div>
+
+                <!-- Highest Qualification -->
+                <div class="form-group">
+                    <label for="experience">Highest Qualification</label>
+                    <select id="experience" name="experience">
+                        <option value="">-- Select --</option>
+                        <option value="GCSE">GCSEs</option>
+                        <option value="A-Level">A Levels / BTEC Level 3</option>
+                        <option value="Bootcamp">Coding Bootcamp</option>
+                        <option value="Degree">University Degree</option>
+                        <option value="Self-taught">Self-taught</option>
+                    </select>
+                    <span id="experienceError" class="error-message"></span>
+                </div>
+
+                <!-- Personal Statement (replaces Cover Letter) -->
+                <div class="form-group">
+                    <label for="coverLetter">Personal Statement</label>
+                    <textarea id="coverLetter" name="coverLetter" placeholder="Tell us about yourself and why you want to join Hot Beans..."></textarea>
+                    <span id="coverLetterError" class="error-message"></span>
+                </div>
+
+                <!-- Portfolio / GitHub URL -->
+                <div class="form-group">
+                    <label for="portfolio">Portfolio or GitHub URL</label>
+                    <input type="text" id="portfolio" name="portfolio" placeholder="https://github.com/yourname">
+                </div>
+
+                <hr class="form-divider">
+
+                <!-- Submit + Clear buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Application</button>
+                    <button type="reset" class="btn-clear">Clear</button>
+                </div>
+
+            </form>
+
+            <div id="successMessage" class="success-message">
+                ✅ Your application has been submitted successfully!
+            </div>
+
+            <p class="privacy-notice">
+                🔒 Your data is processed in accordance with our <a href="#">Privacy Policy</a>. See our privacy notice for details.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand"><h3>Hot Beans Web</h3><p>Growing developers, building futures.</p></div>
+            <div class="footer-links"><h4>Quick Links</h4><a href="company-profile.html">About Us</a><a href="careers.html">Careers</a><a href="apply.html">Contact</a></div>
+            <div class="footer-social"><a href="#" class="social-icon">F</a><a href="#" class="social-icon">T</a><a href="#" class="social-icon">L</a></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 <a href="home.html">Hot Beans Web</a>. All rights reserved.</p></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
