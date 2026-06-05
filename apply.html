@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hot Beans Web - Apply Now</title>
     <link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("_GcoPejcgXf9vNfoB");</script>
 </head>
 <body>
 
@@ -113,7 +115,7 @@
                     <span id="experienceError" class="error-message"></span>
                 </div>
 
-                <!-- Personal Statement (replaces Cover Letter) -->
+                <!-- Personal Statement -->
                 <div class="form-group">
                     <label for="coverLetter">Personal Statement</label>
                     <textarea id="coverLetter" name="coverLetter" placeholder="Tell us about yourself and why you want to join Hot Beans..."></textarea>
@@ -124,6 +126,14 @@
                 <div class="form-group">
                     <label for="portfolio">Portfolio or GitHub URL</label>
                     <input type="text" id="portfolio" name="portfolio" placeholder="https://github.com/yourname">
+                </div>
+
+                <!-- CV Upload -->
+                <div class="form-group">
+                    <label for="cvUpload">Upload CV <span class="required">*</span></label>
+                    <input type="file" id="cvUpload" name="cvUpload" accept=".pdf,.doc,.docx">
+                    <span class="field-hint">Accepted formats: PDF, DOC, DOCX (max 5MB)</span>
+                    <span id="cvUploadError" class="error-message"></span>
                 </div>
 
                 <hr class="form-divider">
@@ -137,7 +147,11 @@
             </form>
 
             <div id="successMessage" class="success-message">
-                ✅ Your application has been submitted successfully!
+                ✅ Your application has been submitted successfully! A confirmation email has been sent to you.
+            </div>
+
+            <div id="submittingMessage" class="submitting-message">
+                ⏳ Submitting your application, please wait...
             </div>
 
             <p class="privacy-notice">
@@ -154,6 +168,8 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2025 <a href="home.html">Hot Beans Web</a>. All rights reserved.</p></div>
     </footer>
-    <script src="script.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
